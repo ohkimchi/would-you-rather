@@ -6,6 +6,7 @@ import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
+import { handleSaveAnsweredQs } from '../actions/questions'
 
 class Question extends Component {
   constructor(props) {
@@ -13,6 +14,16 @@ class Question extends Component {
     this.state = {
       value: '',
     }
+  }
+
+  handleSaveAnsweredQuestion = (e) => {
+    e.preventDefault()
+
+    const { dispatch, question, authedUser } = this.props
+
+    dispatch(handleSaveAnsweredQs({
+      question
+    }))
   }
 
   render() {

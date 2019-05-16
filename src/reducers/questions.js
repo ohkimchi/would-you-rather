@@ -1,4 +1,4 @@
-import { GET_QUESTIONS } from '../actions/questions'
+import { GET_QUESTIONS, SAVE_ANSWERED_QS } from '../actions/questions'
 
 export default function questions (state = {}, action) {
   switch(action.type) {
@@ -6,6 +6,14 @@ export default function questions (state = {}, action) {
       return {
         ...state,
         ...action.questions,
+      }
+    case SAVE_ANSWERED_QS :
+      return {
+        ...state,
+        [action.id]: {
+          ...state[action.id],
+          questions: state[action.id].questions.add(action.question)
+        }
       }
     default :
       return state
