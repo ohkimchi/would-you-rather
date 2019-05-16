@@ -5,9 +5,9 @@ export default function Nav () {
   return (
     <nav className='nav'>
       <ul>
-        <li><NavLink to='' exact activeClassName='active'>Homepage</NavLink></li>
-        <li><NavLink to='' activeClassName='active'>Leaderboard</NavLink></li>
-        <li><NavLink to='' activeClassName='active'>New Question</NavLink></li>
+        <li><NavLink to='/' exact activeClassName='active'>Homepage</NavLink></li>
+        <li><NavLink to='/leaderboard' activeClassName='active'>Leaderboard</NavLink></li>
+        <li><NavLink to='/new' activeClassName='active'>New Question</NavLink></li>
       </ul>
     </nav>
   )

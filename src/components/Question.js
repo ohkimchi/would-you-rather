@@ -5,6 +5,7 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import { handleSaveAnsweredQs } from '../actions/questions'
+import { Link, withRouter } from 'react-router-dom'
 
 class Question extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Question extends Component {
     e.preventDefault()
 
     const { dispatch, question } = this.props
+    this.props.history.push(`/question/${question.id}`)
 
     dispatch(handleSaveAnsweredQs({
       question
@@ -33,9 +35,9 @@ class Question extends Component {
 
     if (!question) return <p>This Question does not exist.</p>
 
-    const { optionOne, optionTwo } = question
+    const { optionOne, optionTwo, id } = question
     return (
-      <div className='question'>
+      <Link to={`/question/${id}`} className='question'>
         <img
           src={""}
           alt={`Avatar of`}
@@ -63,9 +65,9 @@ class Question extends Component {
             has answered with "{optionTwo.text}"`
           </div>
         </div>
-      </div>
+      </Link>
     )
   }
 }
 
-export default Question;
+export default withRouter(Question);

@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Radio from '@material-ui/core/Radio';
-import FormControl from '@material-ui/core/FormControl';
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Radio from '@material-ui/core/Radio'
+import FormControl from '@material-ui/core/FormControl'
+import { Redirect } from 'react-router-dom'
 
 class NewQuestion extends Component {
   state = {
     text: '',
+    toHome: false,
   }
 
   handleChange = e => {
@@ -25,11 +27,15 @@ class NewQuestion extends Component {
 
     dispatch(handleAddQuestion(text, id))
 
-    this.setState(() => ({ text: '' }))
+    this.setState(() => ({
+      text: '',
+      toHome: id ? false : true,
+    }))
   }
 
   render() {
-    const { text } = this.state
+    const { text, toHome } = this.state
+    if (toHome) return <Redirect to='/homepage' />
     const questionLeft = 280 - text.length
 
     return (
