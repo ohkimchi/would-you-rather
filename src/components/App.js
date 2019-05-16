@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import Leaderboard from './Leaderboard'
+// import Leaderboard from './Leaderboard'
+import Homepage from './Homepage'
 
 class App extends Component {
   componentDidMount() {
@@ -11,7 +12,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.loading === true ? null : <Leaderboard /> }
+        <Homepage />
+        {/*<Leaderboard />*/}
+        {/*{this.props.loading === true ? null : <Leaderboard /> }*/}
       </div>
     )
   }

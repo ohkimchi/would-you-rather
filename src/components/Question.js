@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getVotesNumForTheOption, getPercentageForTheOption } from '../utils/helpers'
 import Radio from '@material-ui/core/Radio'
@@ -12,7 +11,7 @@ class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: 0,
     }
   }
 
@@ -29,8 +28,10 @@ class Question extends Component {
   render() {
     const { question } = this.props
     if (question === null) return <p>This Question does not exist.</p>
+
     const { author, optionOne, optionTwo } = question
-    handleChange = e => {
+
+    const handleChange = e => {
       this.setState({ value: e.target.value });
     }
 
@@ -38,13 +39,13 @@ class Question extends Component {
       <div className='question'>
         <h3>Would You Rather</h3>
         <img
-          src={avatar}
+          src={""}
           alt={`Avatar of ${author}`}
           className='avatar'
         />
         <div className='question-info'>
           <div>
-            <FormControl component="fieldset" className={classes.formControl}>
+            <FormControl component="fieldset" className='questions-info-form-control'>
               <RadioGroup
                 name="options"
                 className="options"
@@ -56,8 +57,8 @@ class Question extends Component {
               </RadioGroup>
             </FormControl>
           </div>
-          <div><span>{`${getVotesNumForTheOption(question, 'optionOne')} (${getPercentageForTheOption(question, 'optionOne')}) has answered with ${optionOne.text}`</span></div>
-          <div><span>{`${getVotesNumForTheOption(question, 'optionTwo')} (${getPercentageForTheOption(question, 'optionTwo')}) has answered with ${optionTwo.text}`</span></div>
+          <div>`${getVotesNumForTheOption(question, 'optionOne')} (${getPercentageForTheOption(question, 'optionOne')}) has answered with ${optionOne.text}`</div>
+          <div>`${getVotesNumForTheOption(question, 'optionTwo')} (${getPercentageForTheOption(question, 'optionTwo')}) has answered with ${optionTwo.text}`</div>
         </div>
       </div>
     )
@@ -69,11 +70,6 @@ function mapStateToProps({authedUser, question}) {
     authedUser,
     question: question,
   }
-}
-
-Question.propTypes = {
-  question: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps)(Question);
