@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
+    "react-redux-loading": "^1.0.1",
     "react-scripts": "3.0.1",
     "react-table": "^6.10.0",
     "redux": "^4.0.1",
