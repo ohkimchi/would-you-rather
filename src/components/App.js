@@ -5,7 +5,7 @@ import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
 import Leaderboard from './Leaderboard'
 import Homepage from './Homepage'
-import Question from './Question'
+import QuestionPage from './QuestionPage'
 import NewQuestion from './NewQuestion'
 import Nav from './Nav'
 
@@ -26,7 +26,7 @@ class App extends Component {
               : <div>
                   <Route path='/' exact component={Homepage} />
                   <Route path='/leaderboard' component={Leaderboard} />
-                  <Route path='/questions/:id' component={Question} />
+                  <Route path='/question/:id' component={QuestionPage} />
                   <Route path='/new' component={NewQuestion} />
                 </div>}
           </div>
