@@ -56,11 +56,11 @@ class Question extends Component {
               </RadioGroup>
             </FormControl>
           </div>
-          <div>`${getVotesNumForTheOption(question, 'optionOne')} (${getPercentageForTheOption(question, 'optionOne')})
-            has answered with ${optionOne.text}`
+          <div>`{getVotesNumForTheOption(question, 'optionOne')} ({getPercentageForTheOption(question, 'optionOne')})
+            has answered with "{optionOne.text}"`
           </div>
-          <div>`${getVotesNumForTheOption(question, 'optionTwo')} (${getPercentageForTheOption(question, 'optionTwo')})
-            has answered with ${optionTwo.text}`
+          <div>`{getVotesNumForTheOption(question, 'optionTwo')} ({getPercentageForTheOption(question, 'optionTwo')})
+            has answered with "{optionTwo.text}"`
           </div>
         </div>
       </div>
