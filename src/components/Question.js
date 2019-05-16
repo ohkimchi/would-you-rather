@@ -36,12 +36,12 @@ class Question extends Component {
     const { optionOne, optionTwo } = question
     return (
       <div className='question'>
-        <h3>Would You Rather</h3>
         <img
           src={""}
           alt={`Avatar of`}
           className='avatar'
         />
+        <h3>Would You Rather</h3>
         <div className='question-info'>
           <div>
             <FormControl component="fieldset" className='questions-info-form-control'>
