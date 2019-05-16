@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getVotesNumForTheOption, getPercentageForTheOption } from '../utils/helpers'
 import Radio from '@material-ui/core/Radio'
@@ -37,12 +37,12 @@ class Question extends Component {
   }
 
   render() {
-    const { question, users, authedUser } = this.props
+    const { question, users } = this.props
     const qsAuthorInfo = this.getQuestionUserInfo(question, users)
 
     if (!question) return <p>This Question does not exist.</p>
 
-    const { optionOne, optionTwo, id, author } = question
+    const { optionOne, optionTwo, id } = question
     return (
       <Link to={`/question/${id}`} className='question'>
         <img
@@ -54,19 +54,17 @@ class Question extends Component {
         <div className='question-info'>
           <div>
             <h4>Would You Rather</h4>
-            <Fragment>
-              <FormControl component="fieldset" className='questions-info-form-control'>
-                <RadioGroup
-                  name="options"
-                  className="options"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                >
-                  <FormControlLabel value={question.optionOne.text} control={<Radio/>} label={question.optionOne.text}/>
-                  <FormControlLabel value={optionTwo.text} control={<Radio/>} label={optionTwo.text}/>
-                </RadioGroup>
-              </FormControl>
-            </Fragment>
+            <FormControl component="fieldset" className='questions-info-form-control'>
+              <RadioGroup
+                name="options"
+                className="options"
+                value={this.state.value}
+                onChange={this.handleChange}
+              >
+                <FormControlLabel value={question.optionOne.text} control={<Radio/>} label={question.optionOne.text}/>
+                <FormControlLabel value={optionTwo.text} control={<Radio/>} label={optionTwo.text}/>
+              </RadioGroup>
+            </FormControl>
           </div>
           <div>{getVotesNumForTheOption(question, 'optionOne')} ({getPercentageForTheOption(question, 'optionOne')}%)
             has answered with "{optionOne.text}"
