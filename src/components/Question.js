@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getVotesNumForTheOption, getPercentageForTheOption } from '../utils/helpers'
+import { getVotesNumForTheOption,
+          getPercentageForTheOption,
+          getAuthedUserSelectedOption } from '../utils/helpers'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -37,7 +39,8 @@ class Question extends Component {
   }
 
   render() {
-    const { question, users } = this.props
+    const { question, users, authedUser } = this.props
+    const selectedOption = getAuthedUserSelectedOption(question, authedUser)
     const qsAuthorInfo = this.getQuestionUserInfo(question, users)
 
     if (!question) return <p>This Question does not exist.</p>

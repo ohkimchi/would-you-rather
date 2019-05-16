@@ -18,3 +18,23 @@ export function getUnansweredQs(questions) {
     .filter((qs) => questions[qs].optionOne.votes.length === 0 && questions[qs].optionTwo.votes.length === 0)
     .map(key => questions[key])
 }
+
+export function getAuthedUserSelectedOption(question, authedUser) {
+  const votesForOptionOne = question.optionOne.votes;
+  if (votesForOptionOne.length > 0) {
+    let id;
+    for (id in votesForOptionOne) {
+      if (id === authedUser) return 'OptionOne';
+    }
+  }
+
+  const votesForOptionTwo = question.optionTwo.votes;
+  if (votesForOptionTwo.length > 0) {
+    let id;
+    for (id in votesForOptionTwo) {
+      if (id === authedUser) return 'OptionTwo';
+    }
+  }
+
+  return null;
+}
