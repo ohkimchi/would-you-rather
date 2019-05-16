@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { getVotesNumForTheOption, getPercentageForTheOption } from '../utils/helpers'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
@@ -18,29 +17,29 @@ class Question extends Component {
   handleSaveAnsweredQuestion = (e) => {
     e.preventDefault()
 
-    const { dispatch, question, authedUser } = this.props
+    const { dispatch, question } = this.props
 
     dispatch(handleSaveAnsweredQs({
       question
     }))
   }
 
+  handleChange = e => {
+    this.setState({ value: e.target.value });
+  }
+
   render() {
     const { question } = this.props
-    if (question === null) return <p>This Question does not exist.</p>
 
-    const { author, optionOne, optionTwo } = question
+    if (!question) return <p>This Question does not exist.</p>
 
-    const handleChange = e => {
-      this.setState({ value: e.target.value });
-    }
-
+    const { optionOne, optionTwo } = question
     return (
       <div className='question'>
         <h3>Would You Rather</h3>
         <img
           src={""}
-          alt={`Avatar of ${author}`}
+          alt={`Avatar of`}
           className='avatar'
         />
         <div className='question-info'>
@@ -52,24 +51,21 @@ class Question extends Component {
                 value={this.state.value}
                 onChange={this.handleChange}
               >
-                <FormControlLabel value={optionOne.text} control={<Radio />} label={optionOne.text} />
-                <FormControlLabel value={optionTwo.text} control={<Radio />} label={optionTwo.text} />
+                <FormControlLabel value={question.optionOne.text} control={<Radio/>} label={question.optionOne.text}/>
+                <FormControlLabel value={optionTwo.text} control={<Radio/>} label={optionTwo.text}/>
               </RadioGroup>
             </FormControl>
           </div>
-          <div>`${getVotesNumForTheOption(question, 'optionOne')} (${getPercentageForTheOption(question, 'optionOne')}) has answered with ${optionOne.text}`</div>
-          <div>`${getVotesNumForTheOption(question, 'optionTwo')} (${getPercentageForTheOption(question, 'optionTwo')}) has answered with ${optionTwo.text}`</div>
+          <div>`${getVotesNumForTheOption(question, 'optionOne')} (${getPercentageForTheOption(question, 'optionOne')})
+            has answered with ${optionOne.text}`
+          </div>
+          <div>`${getVotesNumForTheOption(question, 'optionTwo')} (${getPercentageForTheOption(question, 'optionTwo')})
+            has answered with ${optionTwo.text}`
+          </div>
         </div>
       </div>
     )
   }
 }
 
-function mapStateToProps({authedUser, question}) {
-  return {
-    authedUser,
-    question: question,
-  }
-}
-
-export default connect(mapStateToProps)(Question);
+export default Question;

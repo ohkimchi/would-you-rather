@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
@@ -23,13 +22,6 @@ function TabContainer(props) {
 TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-  },
-});
 
 class Homepage extends React.Component {
   state = {
@@ -59,12 +51,8 @@ class Homepage extends React.Component {
   }
 }
 
-Homepage.propTypes = {
-  questions: PropTypes.object.isRequired,
-};
-
 function mapStateToProps({ questions }) {
   return { questions }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(Homepage));
+export default connect(mapStateToProps)(Homepage);
