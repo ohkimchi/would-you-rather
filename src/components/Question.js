@@ -31,17 +31,27 @@ class Question extends Component {
 
   handleSaveAnsweredQuestion = (e) => {
     e.preventDefault()
-
-    const { dispatch, question } = this.props
+console.log(this.props)
+    const { dispatch, questions, users, question, authedUser } = this.props
+    const qid = question.id
+    const answer = e.target.name
     this.props.history.push(`/question/${question.id}`)
 
-    dispatch(handleSaveAnsweredQs({
-      question
-    }))
+    if (answer !== '') {
+        dispatch(handleSaveAnsweredQs({
+          questions,
+          users,
+          qid,
+          answer,
+          authedUser,
+        }))
+    }
   }
 
   handleChange = e => {
-    this.setState({ value: e.target.value });
+    this.setState({
+      value: e.target.value,
+    });
   }
 
   getQuestionUserInfo = (question, users) => {
@@ -50,7 +60,7 @@ class Question extends Component {
   }
 
   render() {
-    console.log(this.state.value)
+    console.log(this.props)
     const { question, users, authedUser } = this.props
     const qsAuthorInfo = this.getQuestionUserInfo(question, users)
 
@@ -58,7 +68,7 @@ class Question extends Component {
 
     const { optionOne, optionTwo, id } = question
     return (
-      <Link to={`/question/${id}`} className='question'>
+      <div className='question'>
         <img
           src={qsAuthorInfo.avatarURL}
           alt={`Avatar of ${qsAuthorInfo.name}`}
@@ -67,7 +77,9 @@ class Question extends Component {
         <div className='question-info'>
           <div>
             <h6>Asked by {qsAuthorInfo.name}</h6>
-            <h3>Would You Rather</h3>
+            <Link to={`/question/${id}`}>
+              <h3>Would You Rather</h3>
+            </Link>
             <FormControl component="fieldset" className='questions-info-form-control'>
               <RadioGroup
                 name="options"
@@ -75,27 +87,36 @@ class Question extends Component {
                 value={this.state.value}
                 onChange={this.handleChange}
               >
-                <FormControlLabel value={optionOne.text} control={<Radio/>} label={optionOne.text} />
-                <FormControlLabel value={optionTwo.text} control={<Radio/>} label={optionTwo.text} />
+                <FormControlLabel name="optionOne"
+                                  value={optionOne.text}
+                                  control={<Radio/>}
+                                  label={optionOne.text}
+                                  onClick={this.handleSaveAnsweredQuestion} />
+                <FormControlLabel name="optionTwo"
+                                  value={optionTwo.text}
+                                  control={<Radio/>}
+                                  label={optionTwo.text}
+                                  onClick={this.handleSaveAnsweredQuestion} />
               </RadioGroup>
             </FormControl>
           </div>
-          <div>{getVotesNumForTheOption(question, 'optionOne')} ({getPercentageForTheOption(question, 'optionOne')}%)
-            has answered with "{optionOne.text}"
+          <div>{getVotesNumForTheOption(question, 'optionOne')} ({getPercentageForTheOption(question, 'optionOne')}% of answerers)
+            answered with <i><b>{optionOne.text}</b></i>
           </div>
-          <div>{getVotesNumForTheOption(question, 'optionTwo')} ({getPercentageForTheOption(question, 'optionTwo')}%)
-            has answered with "{optionTwo.text}"
+          <div>{getVotesNumForTheOption(question, 'optionTwo')} ({getPercentageForTheOption(question, 'optionTwo')}% of answerers)
+            answered with <i><b>{optionTwo.text}</b></i>
           </div>
         </div>
-      </Link>
+      </div>
     )
   }
 }
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ questions, users, authedUser }) {
   return {
-    authedUser,
+    questions,
     users,
+    authedUser,
   }
 }
 

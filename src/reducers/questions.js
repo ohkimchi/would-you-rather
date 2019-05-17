@@ -10,10 +10,26 @@ export default function questions (state = {}, action) {
     case SAVE_ANSWERED_QS :
       return {
         ...state,
-        [action.id]: {
-          ...state[action.id],
-          questions: state[action.id].questions.add(action.question)
-        }
+        users: {
+          ...action.users,
+          [action.authedUser]: {
+            ...action.users[action.authedUser],
+            answers: {
+              ...action.users[action.authedUser].answers,
+              [action.qid]: action.answer,
+            },
+          },
+        },
+        questions: {
+          ...action.questions,
+          [action.qid]: {
+            ...action.questions[action.qid],
+            [action.answer]: {
+              ...action.questions[action.qid][action.answer],
+              votes: action.questions[action.qid][action.answer].votes.concat([action.authedUser]),
+            },
+          },
+        },
       }
     case ADD_QUESTION :
       const { question } = action
@@ -21,6 +37,10 @@ export default function questions (state = {}, action) {
         ...state,
         [action.question.id]: action.question,
       }
+    // case SAVE_QUESTION :
+    //   return {
+    //
+    //   }
     default :
       return state
   }

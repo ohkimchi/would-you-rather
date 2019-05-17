@@ -8,7 +8,6 @@ import { getAnsweredQs, getUnansweredQs } from '../utils/helpers'
 import Question from './Question'
 
 function TabContainer(props) {
-  //todo
   return (
     <Typography component="div" style={{ padding: 8 * 3 }}>
       {props.questions.map(q => (

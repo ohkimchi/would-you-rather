@@ -20,28 +20,32 @@ export function handleAddQuestion (text) {
   }
 }
 
-function addQuestion (question) {
+function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     question,
   }
 }
 
-export function getQuestions (questions) {
+export function getQuestions(questions) {
   return {
     type: GET_QUESTIONS,
     questions,
   }
 }
 
-function saveAnsweredQs ({ question }) {
+function saveAnsweredQs({ questions, users, qid, answer, authedUser }) {
   return {
     type: SAVE_ANSWERED_QS,
-    question,
+    questions,
+    users,
+    qid,
+    answer,
+    authedUser,
   }
 }
 
-export function handleSaveAnsweredQs (info) {
+export function handleSaveAnsweredQs(info) {
   return (dispatch) => {
     dispatch(saveAnsweredQs(info))
 
