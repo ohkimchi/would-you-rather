@@ -52,3 +52,21 @@ export function getAuthedUserSelectedOption(question, authedUser) {
     }
   }
 }
+
+export function getOptionNameFromOptionText(text, question) {
+  return text === question.optionOne.text ? "optionOne" : "optionTwo";
+}
+
+export function removeExtraQuestionsAnsUsersKeysInInfo(info) {
+  if (info.questions.questions) {
+    let key = Object.keys(info.questions.questions)[0]
+    info.questions[key] = info.questions.questions[key]
+    delete info.questions.questions
+  }
+  if (info.users.users) {
+    let key = Object.keys(info.users.users)[0]
+    info.users[key] = info.users.users[key]
+    delete info.users.users
+  }
+  return info
+}

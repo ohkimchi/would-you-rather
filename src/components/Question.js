@@ -4,6 +4,7 @@ import { getVotesNumForTheOption,
           getPercentageForTheOption,
           getAuthedUserSelectedOption,
           checkIfAuthedUserAnsweredQs,
+          getOptionNameFromOptionText,
 } from '../utils/helpers'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
@@ -31,21 +32,18 @@ class Question extends Component {
 
   handleSaveAnsweredQuestion = (e) => {
     e.preventDefault()
-console.log(this.props)
     const { dispatch, questions, users, question, authedUser } = this.props
+    console.log(questions)
     const qid = question.id
-    const answer = e.target.name
+    const answer = getOptionNameFromOptionText(e.target.value, question)
+    dispatch(handleSaveAnsweredQs({
+      questions,
+      users,
+      qid,
+      answer,
+      authedUser,
+    }))
     this.props.history.push(`/question/${question.id}`)
-
-    if (answer !== '') {
-        dispatch(handleSaveAnsweredQs({
-          questions,
-          users,
-          qid,
-          answer,
-          authedUser,
-        }))
-    }
   }
 
   handleChange = e => {
@@ -60,7 +58,6 @@ console.log(this.props)
   }
 
   render() {
-    console.log(this.props)
     const { question, users, authedUser } = this.props
     const qsAuthorInfo = this.getQuestionUserInfo(question, users)
 
@@ -87,13 +84,11 @@ console.log(this.props)
                 value={this.state.value}
                 onChange={this.handleChange}
               >
-                <FormControlLabel name="optionOne"
-                                  value={optionOne.text}
+                <FormControlLabel value={optionOne.text}
                                   control={<Radio/>}
                                   label={optionOne.text}
                                   onClick={this.handleSaveAnsweredQuestion} />
-                <FormControlLabel name="optionTwo"
-                                  value={optionTwo.text}
+                <FormControlLabel value={optionTwo.text}
                                   control={<Radio/>}
                                   label={optionTwo.text}
                                   onClick={this.handleSaveAnsweredQuestion} />

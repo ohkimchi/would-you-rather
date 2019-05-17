@@ -1,5 +1,6 @@
 import { saveQuestionAnswer, saveQuestion } from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
+import { removeExtraQuestionsAnsUsersKeysInInfo } from '../utils/helpers'
 
 export const GET_QUESTIONS = 'GET_QUESTIONS'
 export const SAVE_ANSWERED_QS = 'SAVE_ANSWERED_QS'
@@ -46,6 +47,12 @@ function saveAnsweredQs({ questions, users, qid, answer, authedUser }) {
 }
 
 export function handleSaveAnsweredQs(info) {
+  if (info.questions.questions) {
+    info = removeExtraQuestionsAnsUsersKeysInInfo(info)
+  }
+
+  console.log("info", info)
+
   return (dispatch) => {
     dispatch(saveAnsweredQs(info))
 

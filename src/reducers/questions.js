@@ -8,25 +8,28 @@ export default function questions (state = {}, action) {
         ...action.questions,
       }
     case SAVE_ANSWERED_QS :
+      const { users, questions } = state
+      const { authedUser, qid, answer } = action
+      console.log("action", action)
       return {
         ...state,
-        users: {
-          ...action.users,
-          [action.authedUser]: {
-            ...action.users[action.authedUser],
-            answers: {
-              ...action.users[action.authedUser].answers,
-              [action.qid]: action.answer,
+        questions: {
+          ...questions,
+          [qid]: {
+            ...action.questions[qid],
+            [answer]: {
+              ...action.questions[qid][answer],
+              votes: action.questions[qid][answer].votes.concat([authedUser]),
             },
           },
         },
-        questions: {
-          ...action.questions,
-          [action.qid]: {
-            ...action.questions[action.qid],
-            [action.answer]: {
-              ...action.questions[action.qid][action.answer],
-              votes: action.questions[action.qid][action.answer].votes.concat([action.authedUser]),
+        users: {
+          ...users,
+          [authedUser]: {
+            ...action.users[authedUser],
+            answers: {
+              ...action.users[authedUser].answers,
+              [qid]: answer,
             },
           },
         },
