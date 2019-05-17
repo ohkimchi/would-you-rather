@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getVotesNumForTheOption,
           getPercentageForTheOption,
-          getAuthedUserSelectedOption } from '../utils/helpers'
+          getAuthedUserSelectedOption,
+          checkIfAuthedUserAnsweredQs,
+} from '../utils/helpers'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -14,7 +16,16 @@ class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 0,
+      value: '',
+    }
+  }
+
+  componentDidMount = () => {
+    const { question, authedUser } = this.props
+    if (checkIfAuthedUserAnsweredQs(question, authedUser)) {
+      this.setState({
+        value: getAuthedUserSelectedOption(question, authedUser)
+      })
     }
   }
 
@@ -39,8 +50,8 @@ class Question extends Component {
   }
 
   render() {
+    console.log(this.state.value)
     const { question, users, authedUser } = this.props
-    const selectedOption = getAuthedUserSelectedOption(question, authedUser)
     const qsAuthorInfo = this.getQuestionUserInfo(question, users)
 
     if (!question) return <p>This Question does not exist.</p>
@@ -53,10 +64,10 @@ class Question extends Component {
           alt={`Avatar of ${qsAuthorInfo.name}`}
           className='avatar'
         />
-        <span>{qsAuthorInfo.name}</span>
         <div className='question-info'>
           <div>
-            <h4>Would You Rather</h4>
+            <h6>Asked by {qsAuthorInfo.name}</h6>
+            <h3>Would You Rather</h3>
             <FormControl component="fieldset" className='questions-info-form-control'>
               <RadioGroup
                 name="options"
@@ -64,8 +75,8 @@ class Question extends Component {
                 value={this.state.value}
                 onChange={this.handleChange}
               >
-                <FormControlLabel value={question.optionOne.text} control={<Radio/>} label={question.optionOne.text}/>
-                <FormControlLabel value={optionTwo.text} control={<Radio/>} label={optionTwo.text}/>
+                <FormControlLabel value={optionOne.text} control={<Radio/>} label={optionOne.text} />
+                <FormControlLabel value={optionTwo.text} control={<Radio/>} label={optionTwo.text} />
               </RadioGroup>
             </FormControl>
           </div>

@@ -28,7 +28,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    const { questions } = this.props
+    const { questions, authedUser } = this.props
     const { value } = this.state
 
     return (
@@ -39,15 +39,18 @@ class Homepage extends React.Component {
             <Tab label="Unanswered" />
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer key='answered-list' questions={getAnsweredQs(questions)}>Answered</TabContainer>}
-        {value === 1 && <TabContainer key='unanswered-list' questions={getUnansweredQs(questions)}>Unanswered</TabContainer>}
+        {value === 0 && <TabContainer key='answered-list' questions={getAnsweredQs(questions, authedUser)}>Answered</TabContainer>}
+        {value === 1 && <TabContainer key='unanswered-list' questions={getUnansweredQs(questions, authedUser)}>Unanswered</TabContainer>}
       </div>
     )
   }
 }
 
-function mapStateToProps({ questions }) {
-  return { questions }
+function mapStateToProps({ questions, authedUser }) {
+  return {
+    questions,
+    authedUser,
+  }
 }
 
 export default connect(mapStateToProps)(Homepage)

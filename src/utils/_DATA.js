@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fraw.githubusercontent.com%2FAshwinvalento%2Fcartoon-avatar%2Fmaster%2Flib%2Fimages%2Fmale%2F45.png&imgrefurl=https%3A%2F%2Fgithub.com%2FAshwinvalento%2Fcartoon-avatar&docid=_mb6kaAToygGzM&tbnid=z_u6vxxTMxRbAM%3A&vet=10ahUKEwjs17qmjJ7iAhW_6nMBHaEpBwIQMwhLKBEwEQ..i&w=185&h=185&bih=775&biw=1527&q=random%20avatar%20generator&ved=0ahUKEwjs17qmjJ7iAhW_6nMBHaEpBwIQMwhLKBEwEQ&iact=mrc&uact=8",
+    avatarURL: "https://gravatar.com/avatar/0b9da8c701f84862d902259b20a17dc7?s=400&d=robohash&r=x",
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
