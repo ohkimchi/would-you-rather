@@ -32,8 +32,8 @@ class Question extends Component {
 
   handleSaveAnsweredQuestion = (e) => {
     e.preventDefault()
+    // for unknown reason, everytime the questions and users are injected into the this.props.questions
     const { dispatch, questions, users, question, authedUser } = this.props
-    console.log(questions)
     const qid = question.id
     const answer = getOptionNameFromOptionText(e.target.value, question)
     dispatch(handleSaveAnsweredQs({

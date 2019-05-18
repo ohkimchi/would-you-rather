@@ -63,10 +63,10 @@ export function removeExtraQuestionsAnsUsersKeysInInfo(info) {
     info.questions[key] = info.questions.questions[key]
     delete info.questions.questions
   }
-  if (info.users.users) {
-    let key = Object.keys(info.users.users)[0]
-    info.users[key] = info.users.users[key]
-    delete info.users.users
+  if (info.questions.users) {
+    let key = Object.keys(info.questions.users)[0]
+    info.users[key] = info.questions.users[key]
+    delete info.questions.users
   }
   return info
 }
