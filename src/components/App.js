@@ -8,6 +8,7 @@ import Homepage from './Homepage'
 import QuestionPage from './QuestionPage'
 import NewQuestion from './NewQuestion'
 import Nav from './Nav'
+import Login from './Login'
 
 class App extends Component {
   componentDidMount() {
@@ -28,6 +29,7 @@ class App extends Component {
                   <Route path='/leaderboard' component={Leaderboard} />
                   <Route path='/question/:id' component={QuestionPage} />
                   <Route path='/new' component={NewQuestion} />
+                  <Route path='/login' component={Login} />
                 </div>}
           </div>
         </Fragment>
