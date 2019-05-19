@@ -54,9 +54,26 @@ class Question extends Component {
   }
 
   handleChange = e => {
-    this.setState({
-      value: e.target.value,
-    });
+    e.preventDefault()
+    // for unknown reason, everytime the questions and users are injected into the this.props.questions
+    const { dispatch, questions, users, question, authedUser } = this.props
+    const qid = question.id
+    const answer = getOptionNameFromOptionText(e.target.value, question)
+    const toDispatch = handleSaveAnsweredQs({
+      questions,
+      users,
+      qid,
+      answer,
+      authedUser,
+    })
+    if (toDispatch !== null) {
+      dispatch(toDispatch)
+    }
+    if (this.state.value !== e.target.value) {
+      this.setState({
+        value: e.target.value,
+      });
+    }
   }
 
   getQuestionUserInfo = (question, users) => {

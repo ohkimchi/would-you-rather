@@ -5,34 +5,39 @@ import { Redirect } from 'react-router-dom'
 
 class NewQuestion extends Component {
   state = {
-    text: '',
+    option1: '',
+    option2: '',
     toHome: false,
   }
 
   handleChange = e => {
     const text = e.target.value
+    const optionId = e.target.id
 
-    this.setState(() => ({ text }))
+    optionId === 'option1' ? this.setState(() => ({ option1 : text }))
+      : this.setState(() => ({ option2 : text }))
   }
 
   handleSubmit = e => {
     e.preventDefault()
 
-    const { text } = this.state
+    const { option1, option2 } = this.state
     const { dispatch, id } = this.props
 
-    dispatch(handleAddQuestion(text, id))
+    dispatch(handleAddQuestion(option1, id))
 
     this.setState(() => ({
-      text: '',
+      option1: '',
+      option2: '',
       toHome: id ? false : true,
     }))
   }
 
   render() {
-    const { text, toHome } = this.state
+    const { option1, option2, toHome } = this.state
     if (toHome) return <Redirect to='/homepage' />
-    const questionLeft = 280 - text.length
+    const questionLeft1 = 280 - option1.length
+    const questionLeft2 = 200 - option2.length
 
     return (
       <div>
@@ -40,21 +45,36 @@ class NewQuestion extends Component {
         <form className='new-question' onSubmit={this.handleSubmit}>
           <h2>Would you rather</h2>
           <textarea
-            placeholder="What would you like to do?"
-            value={text}
+            placeholder="What would you like to do? Option 1"
+            value={option1}
+            id='option1'
             onChange={this.handleChange}
             className='textarea'
             maxLength={280}
           />
-          {questionLeft <= 100 && (
-            <div className='tweet-length'>
-              {questionLeft}
+          {questionLeft1 <= 100 && (
+            <div className='question-length'>
+              {questionLeft1}
+            </div>
+          )}
+          <div>or</div>
+          <textarea
+            placeholder="What would you like to do? Option 2"
+            value={option2}
+            id='option2'
+            onChange={this.handleChange}
+            className='textarea'
+            maxLength={280}
+          />
+          {questionLeft2 <= 100 && (
+            <div className='question-length'>
+              {questionLeft2}
             </div>
           )}
           <button
             className='btn'
             type='submit'
-            disabled={text === ''}>
+            disabled={option1 === '' || option2 === ''}>
             Submit
           </button>
         </form>

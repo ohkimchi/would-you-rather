@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16d8e21b-b6b4-46c3-8379-2b9f8b8d25b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/questions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewQuestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewQuestion.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Question.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/NewQuestion.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-735">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="202">
+              <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -87,11 +85,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Question.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+            <state relative-caret-position="58">
+              <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="128" selection-end-column="12" />
+              <folding>
+                <element signature="e#2084#3743#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,8 +147,9 @@
       <find>getUnansweredQs</find>
       <find>handleSaveAnsweredQs</find>
       <find>votes</find>
-      <find>handleSaveAnsweredQuestion</find>
       <find>console.log</find>
+      <find>handleSaveAnsweredQuestion</find>
+      <find>handleChange</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,15 +178,15 @@
         <option value="$PROJECT_DIR$/src/components/newQuestion.js" />
         <option value="$PROJECT_DIR$/src/components/Nav.js" />
         <option value="$PROJECT_DIR$/src/components/App.js" />
-        <option value="$PROJECT_DIR$/src/components/NewQuestion.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/components/QuestionPage.js" />
         <option value="$PROJECT_DIR$/src/components/Homepage.js" />
         <option value="$PROJECT_DIR$/src/reducers/questions.js" />
         <option value="$PROJECT_DIR$/src/utils/_DATA.js" />
         <option value="$PROJECT_DIR$/src/actions/questions.js" />
-        <option value="$PROJECT_DIR$/src/components/Question.js" />
         <option value="$PROJECT_DIR$/src/utils/helpers.js" />
+        <option value="$PROJECT_DIR$/src/components/Question.js" />
+        <option value="$PROJECT_DIR$/src/components/NewQuestion.js" />
       </list>
     </option>
   </component>
@@ -194,10 +196,11 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="818" />
     <option name="y" value="23" />
-    <option name="width" value="840" />
-    <option name="height" value="981" />
+    <option name="width" value="818" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -355,18 +358,18 @@
       <workItem from="1558018853064" duration="9479000" />
       <workItem from="1558070111928" duration="6668000" />
       <workItem from="1558165924889" duration="344000" />
-      <workItem from="1558206492933" duration="8163000" />
+      <workItem from="1558206492933" duration="9937000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72288000" />
+    <option name="totallyTimeSpent" value="74062000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1633" height="1027" extended-state="6" />
+    <frame x="818" y="23" width="818" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.496749" visible="true" weight="0.18371096" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.496749" weight="0.36674815" />
       <window_info id="Structure" order="1" sideWeight="0.50325096" side_tool="true" weight="0.24177396" />
       <window_info id="Favorites" order="2" sideWeight="0.5015806" side_tool="true" weight="0.1477363" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -382,7 +385,7 @@
       <window_info anchor="bottom" id="Code comment" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49841937" weight="0.2094522" />
       <window_info anchor="bottom" id="Run" order="11" sideWeight="0.49479166" weight="0.40052015" />
-      <window_info active="true" anchor="bottom" id="Debug" order="12" visible="true" weight="0.42067555" />
+      <window_info active="true" anchor="bottom" id="Debug" order="12" visible="true" weight="0.43126968" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -578,13 +581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/NewQuestion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-735">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/redux-thunk/es/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -635,8 +631,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Question.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        <state relative-caret-position="58">
+          <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="128" selection-end-column="12" />
+          <folding>
+            <element signature="e#2084#3743#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/NewQuestion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
         </state>
       </provider>
     </entry>
