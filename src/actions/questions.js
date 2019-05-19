@@ -6,14 +6,14 @@ export const GET_QUESTIONS = 'GET_QUESTIONS'
 export const SAVE_ANSWERED_QS = 'SAVE_ANSWERED_QS'
 export const ADD_QUESTION = 'ADD_QUESTION'
 
-export function handleAddQuestion (text) {
+export function handleAddQuestion (question) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
 
     dispatch(showLoading())
 
     return saveQuestion({
-      text,
+      ...question,
       author: authedUser,
     })
       .then((question) => dispatch(addQuestion(question)))

@@ -37,12 +37,8 @@ export default function questions (state = {}, action) {
       const { question } = action
       return {
         ...state,
-        [action.question.id]: action.question,
+        [question.id]: question,
       }
-    // case SAVE_QUESTION :
-    //   return {
-    //
-    //   }
     default :
       return state
   }
