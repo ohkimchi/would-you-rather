@@ -36,16 +36,21 @@ class Question extends Component {
     const { dispatch, questions, users, question, authedUser } = this.props
     const qid = question.id
     const answer = getOptionNameFromOptionText(e.target.innerText, question)
-    dispatch(handleSaveAnsweredQs({
+    const toDispatch = handleSaveAnsweredQs({
       questions,
       users,
       qid,
       answer,
       authedUser,
-    }))
-    this.setState({
-      value: e.target.innerText,
-    });
+    })
+    if (toDispatch !== null) {
+      dispatch(toDispatch)
+    }
+    if (this.state.value !== e.target.innerText) {
+      this.setState({
+        value: e.target.innerText,
+      });
+    }
   }
 
   handleChange = e => {

@@ -51,6 +51,10 @@ export function handleSaveAnsweredQs(info) {
     info = removeExtraQuestionsAnsUsersKeysInInfo(info)
   }
 
+  if (info.questions[info.qid][info.answer].votes.includes(info.authedUser)) {
+    return null;
+  }
+
   return (dispatch) => {
     dispatch(saveAnsweredQs(info))
 
