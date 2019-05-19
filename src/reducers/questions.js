@@ -10,7 +10,6 @@ export default function questions (state = {}, action) {
     case SAVE_ANSWERED_QS :
       const { users, questions } = state
       const { authedUser, qid, answer } = action
-      console.log("action", action)
       return {
         ...state,
         questions: {

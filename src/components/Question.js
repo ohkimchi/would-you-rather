@@ -43,7 +43,6 @@ class Question extends Component {
       answer,
       authedUser,
     }))
-    this.props.history.push(`/question/${question.id}`)
   }
 
   handleChange = e => {
