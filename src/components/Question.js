@@ -35,7 +35,7 @@ class Question extends Component {
     // for unknown reason, everytime the questions and users are injected into the this.props.questions
     const { dispatch, questions, users, question, authedUser } = this.props
     const qid = question.id
-    const answer = getOptionNameFromOptionText(e.target.value, question)
+    const answer = getOptionNameFromOptionText(e.target.innerText, question)
     dispatch(handleSaveAnsweredQs({
       questions,
       users,
@@ -43,6 +43,9 @@ class Question extends Component {
       answer,
       authedUser,
     }))
+    this.setState({
+      value: e.target.innerText,
+    });
   }
 
   handleChange = e => {
