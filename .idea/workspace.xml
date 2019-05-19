@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/utils/api.js" description="return _saveQuestionAnswer(info)" line="22" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="16d8e21b-b6b4-46c3-8379-2b9f8b8d25b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/questions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Question.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/questions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,26 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/_DATA.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="174" selection-start-line="174" selection-end-line="174" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reducers/questions.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="441">
-              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Nav.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+              <caret line="187" selection-start-line="187" selection-end-line="187" />
             </state>
           </provider>
         </entry>
@@ -54,6 +39,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.development.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="148" selection-start-line="148" selection-end-line="148" />
+              <folding>
+                <element signature="e#10555#11096#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/QuestionPage.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
@@ -63,10 +60,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/redux-thunk/es/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/actions/questions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="147">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -74,8 +89,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Question.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="92" column="37" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
+            <state relative-caret-position="159">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -92,17 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/helpers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="76" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actions/shared.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="359">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
             </state>
           </provider>
         </entry>
@@ -134,14 +140,16 @@
       <find>handleInitialData</find>
       <find>saveQuestionAnswer</find>
       <find>saveAnsweredQs</find>
-      <find>checkIfAuthedUserAnsweredQs</find>
       <find>removeExtraQuestionsAnsUsersKeysInInfo</find>
       <find>SAVE_ANSWERED_QS</find>
       <find>formatQuestion</find>
-      <find>handleSaveAnsweredQs</find>
       <find>withRouter</find>
       <find>Link</find>
+      <find>checkIfAuthedUserAnsweredQs</find>
+      <find>getUnansweredQs</find>
+      <find>handleSaveAnsweredQs</find>
       <find>handleSaveAnsweredQuestion</find>
+      <find>console.log</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,9 +183,9 @@
         <option value="$PROJECT_DIR$/src/components/QuestionPage.js" />
         <option value="$PROJECT_DIR$/src/utils/_DATA.js" />
         <option value="$PROJECT_DIR$/src/components/Homepage.js" />
-        <option value="$PROJECT_DIR$/src/actions/questions.js" />
         <option value="$PROJECT_DIR$/src/reducers/questions.js" />
         <option value="$PROJECT_DIR$/src/utils/helpers.js" />
+        <option value="$PROJECT_DIR$/src/actions/questions.js" />
         <option value="$PROJECT_DIR$/src/components/Question.js" />
       </list>
     </option>
@@ -349,18 +357,18 @@
       <workItem from="1558018853064" duration="9479000" />
       <workItem from="1558070111928" duration="6668000" />
       <workItem from="1558165924889" duration="344000" />
-      <workItem from="1558206492933" duration="3000000" />
+      <workItem from="1558206492933" duration="5099000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67125000" />
+    <option name="totallyTimeSpent" value="69224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1633" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.496749" visible="true" weight="0.18371096" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.496749" visible="true" weight="0.18371096" />
       <window_info id="Structure" order="1" sideWeight="0.50325096" side_tool="true" weight="0.24177396" />
       <window_info id="Favorites" order="2" sideWeight="0.5015806" side_tool="true" weight="0.1477363" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -376,7 +384,7 @@
       <window_info anchor="bottom" id="Code comment" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49841937" weight="0.2094522" />
       <window_info anchor="bottom" id="Run" order="11" sideWeight="0.49479166" weight="0.40052015" />
-      <window_info anchor="bottom" id="Debug" order="12" visible="true" weight="0.42067555" />
+      <window_info active="true" anchor="bottom" id="Debug" order="12" visible="true" weight="0.42067555" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -399,6 +407,12 @@
           <url>file://$PROJECT_DIR$/src/utils/_DATA.js</url>
           <line>134</line>
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/utils/helpers.js</url>
+          <line>17</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -526,37 +540,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_DATA.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.development.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3885">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
-          <folding>
-            <element signature="e#10555#11096#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/redux-thunk/es/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="76" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/shared.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -599,24 +582,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/questions.js">
+    <entry file="file://$PROJECT_DIR$/src/utils/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="339">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/redux-thunk/es/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/_DATA.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="187" selection-start-line="187" selection-end-line="187" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-dom/cjs/react-dom.development.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
-          <caret line="174" selection-start-line="174" selection-end-line="174" />
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
+          <folding>
+            <element signature="e#10555#11096#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/questions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Question.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="92" column="37" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
+        <state relative-caret-position="159">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
         </state>
       </provider>
     </entry>

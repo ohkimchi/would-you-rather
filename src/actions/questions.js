@@ -51,8 +51,6 @@ export function handleSaveAnsweredQs(info) {
     info = removeExtraQuestionsAnsUsersKeysInInfo(info)
   }
 
-  console.log("info", info)
-
   return (dispatch) => {
     dispatch(saveAnsweredQs(info))
 

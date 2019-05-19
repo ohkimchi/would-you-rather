@@ -8,19 +8,21 @@ export function getPercentageForTheOption(question, optionNameString) {
 }
 
 export function getAnsweredQs(questions, authedUser) {
+  questions = removeExtraQuestionsAndUsersInState(questions)
   return Object.keys(questions)
     .filter((qs) => checkIfAuthedUserAnsweredQs(questions[qs], authedUser))
     .map(key => questions[key])
 }
 
 export function getUnansweredQs(questions, authedUser) {
+  questions = removeExtraQuestionsAndUsersInState(questions)
   return Object.keys(questions)
     .filter((qs) => !checkIfAuthedUserAnsweredQs(questions[qs], authedUser))
     .map(key => questions[key])
 }
 
 export function checkIfAuthedUserAnsweredQs(question, authedUser) {
-  const votesForOptionOne = question.optionOne.votes;
+  let votesForOptionOne = question.optionOne.votes;
   if (votesForOptionOne.length > 0) {
     for (let i = 0, len = votesForOptionOne.length; i < len; i++) {
       if (votesForOptionOne[i] === authedUser) return true;
@@ -69,4 +71,16 @@ export function removeExtraQuestionsAnsUsersKeysInInfo(info) {
     delete info.questions.users
   }
   return info
+}
+
+export function removeExtraQuestionsAndUsersInState(questions) {
+  if (questions.questions) {
+    let key = Object.keys(questions.questions)[0]
+    questions[key] = questions.questions[key]
+    delete questions.questions
+  }
+  if (questions.users) {
+    delete questions.users
+  }
+  return questions
 }
