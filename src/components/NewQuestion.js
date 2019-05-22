@@ -14,8 +14,9 @@ class NewQuestion extends Component {
     const text = e.target.value
     const optionId = e.target.id
 
-    optionId === 'option1' ? this.setState(() => ({ option1 : text }))
-      : this.setState(() => ({ option2 : text }))
+    this.setState({
+      [optionId === 'option1' ? 'option1' : 'option2'] : text
+    })
   }
 
   handleSubmit = e => {
@@ -39,7 +40,7 @@ class NewQuestion extends Component {
     this.setState(() => ({
       option1: '',
       option2: '',
-      toHome: id ? false : true,
+      toHome: !id,
     }))
   }
 

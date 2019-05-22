@@ -2,19 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
 
-class QuestionPage extends Component {
+const QuestionPage = (props) => {
+  const { questions } = props;
+  const { id } = props.match.params
+  const question = Object.keys(questions).filter(key => key === id).map(key => questions[key])[0]
 
-  render() {
-    const { questions } = this.props;
-    const { id } = this.props.match.params
-    const question = Object.keys(questions).filter(key => key === id).map(key => questions[key])[0]
-
-    return (
+  return (
       <div>
         <Question question={question} />
       </div>
-    )
-  }
+  )
 }
 
 function mapStateToProps({ questions }) {
