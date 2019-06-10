@@ -13,21 +13,21 @@ class Login extends Component {
 
   handleChange = e => {
     const target = e.target.value
+    this.props.dispatch(setAuthedUser(target))
     if (target !== 'Logout') {
-      this.props.dispatch(setAuthedUser(target))
+      this.setState({
+        userid: target
+      })
+    } else {
+      this.setState({
+        userid: "Logout"
+      })
     }
-    this.setState({
-      userid: target
-    })
   }
 
   render() {
     const { users } = this.props;
-    if (this.state.userid === 'Logout') {
-      return (
-        <div>404</div>
-      )
-    } else {
+    if (this.state.userid !== 'Logout') {
       return (
         <form className="login" autoComplete="off">
           <FormControl className="formControl">
@@ -39,16 +39,18 @@ class Login extends Component {
                 name: "userid",
               }}
             >
-              {Object.keys(users).map(id => <MenuItem value={id}>{users[id].name}</MenuItem>)}
+              {Object.keys(users).map(id => <MenuItem value={id} key={id}>{users[id].name}</MenuItem>)}
               <MenuItem value={'Logout'}>Log out</MenuItem>
             </Select>
           </FormControl>
         </form>
-    )
+      )
+    } else {
+      return (
+        <div>404</div>
+      )
+    }
   }
-
-  }
-
 }
 
 function mapStateToProps ({ users }) {
