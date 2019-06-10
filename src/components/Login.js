@@ -8,7 +8,7 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends Component {
   state = {
-    userid: ''
+    userid: '',
   }
 
   handleChange = e => {
@@ -16,11 +16,11 @@ class Login extends Component {
     this.props.dispatch(setAuthedUser(target))
     if (target !== 'Logout') {
       this.setState({
-        userid: target
+        userid: target,
       })
     } else {
       this.setState({
-        userid: "Logout"
+        userid: "Logout",
       })
     }
   }
