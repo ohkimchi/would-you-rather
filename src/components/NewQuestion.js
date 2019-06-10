@@ -23,7 +23,7 @@ class NewQuestion extends Component {
     e.preventDefault()
 
     const { option1, option2 } = this.state
-    const { dispatch, id, authedUser } = this.props
+    const { dispatch, id } = this.props
     const question = {
       optionOne: {
         votes: [],

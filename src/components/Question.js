@@ -82,7 +82,7 @@ class Question extends Component {
   }
 
   render() {
-    const { question, users, authedUser } = this.props
+    const { question, users } = this.props
     const qsAuthorInfo = this.getQuestionUserInfo(question, users)
 
     if (!question) return <p>This Question does not exist.</p>
