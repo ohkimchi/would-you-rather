@@ -20,15 +20,15 @@ function TabContainer(props) {
 class Homepage extends React.Component {
   state = {
     value: 0,
-  }
+  };
 
   handleChange = (e, value) => {
     this.setState({ value })
-  }
+  };
 
   render() {
-    const { questions, authedUser } = this.props
-    const { value } = this.state
+    const { questions, authedUser } = this.props;
+    const { value } = this.state;
 
     return (
       <div className='question_list'>

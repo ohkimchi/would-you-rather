@@ -5,7 +5,7 @@ import 'react-table/react-table.css'
 
 class Leaderboard extends Component {
   render() {
-    const data = this.props.users
+    const data = this.props.users;
     const columns = [{
       Header: 'Name',
       accessor: 'name'
@@ -21,7 +21,7 @@ class Leaderboard extends Component {
       Header: 'No. of qs answered',
       id: d => 'answered_' + d.id,
       accessor: d => d.answers.length ? d.answers.length.toString() : '0'
-    }]
+    }];
 
     return (
       <div>
