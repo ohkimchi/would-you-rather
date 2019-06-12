@@ -11,49 +11,35 @@ class Login extends Component {
         super(props);
         this.state = {
             userid: "",
-            relogin: props.relogin
         };
     }
 
   handleChange = e => {
       const target = e.target.value;
       this.props.dispatch(setAuthedUser(target));
-      if (target !== "Logout") {
-          this.setState({
-              userid: target,
-          });
-      } else {
-          this.setState({
-              userid: "Logout",
-          });
-      }
+      this.setState({
+          userid: target,
+      });
   };
 
   render() {
       const { users } = this.props;
-      if (this.state.userid !== "Logout" || this.state.relogin) {
-          return (
-              <form className="login" autoComplete="off">
-                  <FormControl className="formControl">
-                      <InputLabel htmlFor="age-simple">User</InputLabel>
-                      <Select
-                          value={this.state.userid}
-                          onChange={this.handleChange}
-                          inputProps={{
-                              name: "userid",
-                          }}
-                      >
-                          {Object.keys(users).map(id => <MenuItem value={id} key={id}>{users[id].name}</MenuItem>)}
-                          <MenuItem value={"Logout"}>Log out</MenuItem>
-                      </Select>
-                  </FormControl>
-              </form>
-          );
-      } else {
-          return (
-              <div>404</div>
-          );
-      }
+      return (
+          <form className="login" autoComplete="off">
+              <FormControl className="formControl">
+                  <InputLabel htmlFor="age-simple">User</InputLabel>
+                  <Select
+                      value={this.state.userid}
+                      onChange={this.handleChange}
+                      inputProps={{
+                          name: "userid",
+                      }}
+                  >
+                      {Object.keys(users).map(id => <MenuItem value={id} key={id}>{users[id].name}</MenuItem>)}
+                  </Select>
+              </FormControl>
+          </form>
+      );
   }
 }
 
