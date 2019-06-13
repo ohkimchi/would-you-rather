@@ -11,13 +11,6 @@ import Nav from "./Nav"
 import Login from "./Login"
 
 class App extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            relogin: false,
-        }
-    }
-
     componentDidMount() {
         this.props.dispatch(handleInitialData())
     }
@@ -36,7 +29,7 @@ class App extends Component {
                                 <Route path='/leaderboard' component={Leaderboard} />
                                 <Route path='/question/:id' component={QuestionPage} />
                                 <Route path='/new' component={NewQuestion} />
-                                <Route path='/login' render={(props) => <Login {...props} relogin={this.state.relogin} />} />
+                                <Route path='/login' render={(props) => <Login {...props} relogin={this.props.relogin} />} />
                             </div>}
                     </div>
                 </Fragment>
@@ -45,8 +38,8 @@ class App extends Component {
     }
 }
 
-function mapStateToProps ({ authedUser }) {
-    return { loading: authedUser === null }
+function mapStateToProps ({ authedUser, relogin }) {
+    return { loading: authedUser === null, relogin }
 }
 
 export default connect(mapStateToProps)(App)
