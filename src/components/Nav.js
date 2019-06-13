@@ -12,7 +12,7 @@ const Nav = (props) => {
         loggingStatus = (loggingStatus === "Logout") ? "Login" : "Logout"
         if (loggingStatus === "Logout") {
             props.dispatch(setAuthedUser(null))
-            if (relogin === false) {
+            if (!relogin) {
                 props.dispatch(setRelogin(true))
             }
         }
