@@ -16,7 +16,6 @@ class App extends Component {
     }
 
     render() {
-        const { relogin } = this.props
         return (
             <Router>
                 <Fragment>
@@ -30,7 +29,7 @@ class App extends Component {
                                 <Route path='/leaderboard' component={Leaderboard} />
                                 <Route path='/question/:id' component={QuestionPage} />
                                 <Route path='/new' component={NewQuestion} />
-                                <Route path='/login' render={(props) => <Login {...props} relogin={relogin} />} />
+                                <Route path='/login' component={Login} />
                             </div>}
                     </div>
                 </Fragment>
@@ -39,8 +38,8 @@ class App extends Component {
     }
 }
 
-function mapStateToProps ({ authedUser, relogin }) {
-    return { loading: authedUser === null, relogin }
+function mapStateToProps ({ authedUser }) {
+    return { loading: authedUser === null }
 }
 
 export default connect(mapStateToProps)(App)

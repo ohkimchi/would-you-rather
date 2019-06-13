@@ -23,8 +23,7 @@ class Login extends Component {
   };
 
   render() {
-      const { users, relogin } = this.props
-      console.log("initialize", relogin)
+      const { users } = this.props
       return (
           <form className="login" autoComplete="off">
               <FormControl className="formControl">
@@ -44,8 +43,8 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps ({ users, relogin }) {
-    return { users, relogin }
+function mapStateToProps ({ users }) {
+    return { users }
 }
 
 export default connect(mapStateToProps)(Login)
