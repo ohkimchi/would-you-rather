@@ -10,8 +10,12 @@ const Nav = (props) => {
     let loggingStatus = (authedUser === "Logout" || authedUser === null || authedUser === "") ? "Login" : "Logout"
     const handleOnclick = () => {
         loggingStatus = (loggingStatus === "Logout") ? "Login" : "Logout"
-        this.props.dispatch(setAuthedUser(null))
-        this.props.dispatch(setRelogin(!relogin))
+        if (loggingStatus === "Logout") {
+            props.dispatch(setAuthedUser(null))
+            if (relogin === false) {
+                props.dispatch(setRelogin(true))
+            }
+        }
     }
 
     return (
@@ -26,7 +30,6 @@ const Nav = (props) => {
                         <div onClick={handleOnclick}>{loggingStatus}</div>
                     </NavLink>
                 </li>
-                {/*<li><NavLink to='/login' activeClassName='active'><div onClick={handleOnclick}>{loggingStatus}</div></NavLink></li>*/}
             </ul>
         </nav>
     )

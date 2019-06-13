@@ -1,93 +1,93 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from "react"
+import { connect } from "react-redux"
 import { getVotesNumForTheOption,
     getPercentageForTheOption,
     getAuthedUserSelectedOption,
     checkIfAuthedUserAnsweredQs,
     getOptionNameFromOptionText,
-} from "../utils/helpers";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
-import { handleSaveAnsweredQs } from "../actions/questions";
-import { Link, withRouter } from "react-router-dom";
+} from "../utils/helpers"
+import Radio from "@material-ui/core/Radio"
+import RadioGroup from "@material-ui/core/RadioGroup"
+import FormControlLabel from "@material-ui/core/FormControlLabel"
+import FormControl from "@material-ui/core/FormControl"
+import { handleSaveAnsweredQs } from "../actions/questions"
+import { Link, withRouter } from "react-router-dom"
 
 class Question extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             value: "",
-        };
+        }
     }
 
   componentDidMount = () => {
-      const { question, authedUser } = this.props;
+      const { question, authedUser } = this.props
       if (checkIfAuthedUserAnsweredQs(question, authedUser)) {
           this.setState({
               value: getAuthedUserSelectedOption(question, authedUser)
-          });
+          })
       }
   };
 
   handleSaveAnsweredQuestion = (e) => {
-      e.preventDefault();
+      e.preventDefault()
       // for unknown reason, everytime the questions and users are injected into the this.props.questions
-      const { dispatch, questions, users, question, authedUser } = this.props;
-      const qid = question.id;
-      const answer = getOptionNameFromOptionText(e.target.innerText, question);
+      const { dispatch, questions, users, question, authedUser } = this.props
+      const qid = question.id
+      const answer = getOptionNameFromOptionText(e.target.innerText, question)
       const toDispatch = handleSaveAnsweredQs({
           questions,
           users,
           qid,
           answer,
           authedUser,
-      });
+      })
       if (toDispatch !== null) {
-          dispatch(toDispatch);
+          dispatch(toDispatch)
       }
       if (this.state.value !== e.target.innerText) {
           this.setState({
               value: e.target.innerText,
-          });
+          })
       }
   };
 
   handleChange = e => {
-      e.preventDefault();
+      e.preventDefault()
       // for unknown reason, everytime the questions and users are injected into the this.props.questions
-      const { dispatch, questions, users, question, authedUser } = this.props;
-      const qid = question.id;
-      const answer = getOptionNameFromOptionText(e.target.value, question);
+      const { dispatch, questions, users, question, authedUser } = this.props
+      const qid = question.id
+      const answer = getOptionNameFromOptionText(e.target.value, question)
       const toDispatch = handleSaveAnsweredQs({
           questions,
           users,
           qid,
           answer,
           authedUser,
-      });
+      })
       if (toDispatch !== null) {
-          dispatch(toDispatch);
+          dispatch(toDispatch)
       }
       if (this.state.value !== e.target.value) {
           this.setState({
               value: e.target.value,
-          });
+          })
       }
   }
 
   getQuestionUserInfo = (question, users) => {
-      const authorId = question.author;
-      return Object.keys(users).filter(key => key === authorId).map(key => users[key])[0];
+      const authorId = question.author
+      return Object.keys(users).filter(key => key === authorId).map(key => users[key])[0]
   }
 
   render() {
-      const { question, users } = this.props;
-      const qsAuthorInfo = this.getQuestionUserInfo(question, users);
+      const { question, users } = this.props
+      const qsAuthorInfo = this.getQuestionUserInfo(question, users)
 
-      if (!question) return <p>This Question does not exist.</p>;
+      if (!question) return <p>This Question does not exist.</p>
 
-      const { optionOne, optionTwo, id } = question;
+      const { optionOne, optionTwo, id } = question
       return (
           <div className='question'>
               <img
@@ -127,7 +127,7 @@ class Question extends Component {
                   </div>
               </div>
           </div>
-      );
+      )
   }
 }
 
@@ -136,7 +136,7 @@ function mapStateToProps({ questions, users, authedUser }) {
         questions,
         users,
         authedUser,
-    };
+    }
 }
 
-export default withRouter(connect(mapStateToProps)(Question));
+export default withRouter(connect(mapStateToProps)(Question))

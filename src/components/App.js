@@ -16,6 +16,7 @@ class App extends Component {
     }
 
     render() {
+        const { relogin } = this.props
         return (
             <Router>
                 <Fragment>
@@ -29,7 +30,7 @@ class App extends Component {
                                 <Route path='/leaderboard' component={Leaderboard} />
                                 <Route path='/question/:id' component={QuestionPage} />
                                 <Route path='/new' component={NewQuestion} />
-                                <Route path='/login' render={(props) => <Login {...props} relogin={this.props.relogin} />} />
+                                <Route path='/login' render={(props) => <Login {...props} relogin={relogin} />} />
                             </div>}
                     </div>
                 </Fragment>
