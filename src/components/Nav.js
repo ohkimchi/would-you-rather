@@ -9,7 +9,7 @@ const Nav = (props) => {
     const greetingUser = (authedUser === "Logout" || authedUser === null || authedUser === "") ? "" : `Hello, ${authedUser}!`
     let loggingStatus = (authedUser === "Logout" || authedUser === null || authedUser === "") ? "Login" : "Logout"
     const handleOnclick = () => {
-        loggingStatus = (loggingStatus === "Logout") ? "Login" : "Logout"
+        loggingStatus = (loggingStatus === "Logout" || loggingStatus === "Login") ? "Login" : "Logout"
         if (loggingStatus === "Logout") {
             props.dispatch(setAuthedUser(null))
             console.log("relogin", relogin)
@@ -28,7 +28,7 @@ const Nav = (props) => {
                 <li><NavLink to='/new' activeClassName='active'>New Question</NavLink></li>
                 <li>{greetingUser}</li>
                 <li>
-                    <NavLink to='/login' activeClassName='active'>
+                    <NavLink to='/login'>
                         <div onClick={handleOnclick}>{loggingStatus}</div>
                     </NavLink>
                 </li>
