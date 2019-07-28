@@ -1,13 +1,13 @@
-import { GET_USERS } from '../actions/users'
+import { GET_USERS } from "../actions/users"
 
-export default function questions (state = {}, action) {
-  switch(action.type) {
-    case GET_USERS :
+export default function questions(state = {}, action) {
+  switch (action.type) {
+    case GET_USERS:
       return {
         ...state,
         ...action.users,
       }
-    default :
+    default:
       return state
   }
 }

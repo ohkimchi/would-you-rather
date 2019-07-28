@@ -8,16 +8,15 @@ import { showLoading, hideLoading } from "react-redux-loading"
 const AUTHED_ID = ""
 const RELOGIN = true
 
-export function handleInitialData () {
-    return (dispatch) => {
-        dispatch(showLoading())
-        return getInitialData()
-            .then(({ users, questions }) => {
-                dispatch(getUsers(users))
-                dispatch(getQuestions(questions))
-                dispatch(setAuthedUser(AUTHED_ID))
-                dispatch(setRelogin(RELOGIN))
-                dispatch(hideLoading())
-            })
-    }
+export function handleInitialData() {
+  return dispatch => {
+    dispatch(showLoading())
+    return getInitialData().then(({ users, questions }) => {
+      dispatch(getUsers(users))
+      dispatch(getQuestions(questions))
+      dispatch(setAuthedUser(AUTHED_ID))
+      dispatch(setRelogin(RELOGIN))
+      dispatch(hideLoading())
+    })
+  }
 }

@@ -6,63 +6,62 @@ export const GET_QUESTIONS = "GET_QUESTIONS"
 export const SAVE_ANSWERED_QS = "SAVE_ANSWERED_QS"
 export const ADD_QUESTION = "ADD_QUESTION"
 
-export function handleAddQuestion (question) {
-    return (dispatch, getState) => {
-        const { authedUser } = getState()
+export function handleAddQuestion(question) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState()
 
-        dispatch(showLoading())
+    dispatch(showLoading())
 
-        return saveQuestion({
-            ...question,
-            author: authedUser,
-        })
-            .then((question) => dispatch(addQuestion(question)))
-            .then(() => dispatch(hideLoading()))
-    }
+    return saveQuestion({
+      ...question,
+      author: authedUser,
+    })
+      .then(question => dispatch(addQuestion(question)))
+      .then(() => dispatch(hideLoading()))
+  }
 }
 
 function addQuestion(question) {
-    return {
-        type: ADD_QUESTION,
-        question,
-    }
+  return {
+    type: ADD_QUESTION,
+    question,
+  }
 }
 
 export function getQuestions(questions) {
-    return {
-        type: GET_QUESTIONS,
-        questions,
-    }
+  return {
+    type: GET_QUESTIONS,
+    questions,
+  }
 }
 
 function saveAnsweredQs({ questions, users, qid, answer, authedUser }) {
-    return {
-        type: SAVE_ANSWERED_QS,
-        questions,
-        users,
-        qid,
-        answer,
-        authedUser,
-    }
+  return {
+    type: SAVE_ANSWERED_QS,
+    questions,
+    users,
+    qid,
+    answer,
+    authedUser,
+  }
 }
 
 export function handleSaveAnsweredQs(info) {
-    if (info.questions.questions) {
-        info = removeExtraQuestionsAnsUsersKeysInInfo(info)
-    }
+  if (info.questions.questions) {
+    info = removeExtraQuestionsAnsUsersKeysInInfo(info)
+  }
 
-    if (info.questions[info.qid][info.answer].votes.includes(info.authedUser)) {
-        return null
-    }
+  if (info.questions[info.qid][info.answer].votes.includes(info.authedUser)) {
+    return null
+  }
 
-    return (dispatch) => {
-        dispatch(saveAnsweredQs(info))
+  return dispatch => {
+    dispatch(saveAnsweredQs(info))
 
-        return saveQuestionAnswer(info)
-            .catch((e) => {
-                console.warn("Error in handleSaveAnsweredQs: ", e)
-                dispatch(saveAnsweredQs(info))
-                alert("There is an error saving the question you answered. Try again.")
-            })
-    }
+    return saveQuestionAnswer(info).catch(e => {
+      console.warn("Error in handleSaveAnsweredQs: ", e)
+      dispatch(saveAnsweredQs(info))
+      alert("There is an error saving the question you answered. Try again.")
+    })
+  }
 }

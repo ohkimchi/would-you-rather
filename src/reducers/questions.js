@@ -1,13 +1,17 @@
-import { GET_QUESTIONS, SAVE_ANSWERED_QS, ADD_QUESTION } from '../actions/questions'
+import {
+  GET_QUESTIONS,
+  SAVE_ANSWERED_QS,
+  ADD_QUESTION,
+} from "../actions/questions"
 
-export default function questions (state = {}, action) {
-  switch(action.type) {
-    case GET_QUESTIONS :
+export default function questions(state = {}, action) {
+  switch (action.type) {
+    case GET_QUESTIONS:
       return {
         ...state,
         ...action.questions,
       }
-    case SAVE_ANSWERED_QS :
+    case SAVE_ANSWERED_QS:
       const { users, questions } = state
       const { authedUser, qid, answer } = action
       return {
@@ -33,13 +37,13 @@ export default function questions (state = {}, action) {
           },
         },
       }
-    case ADD_QUESTION :
+    case ADD_QUESTION:
       const { question } = action
       return {
         ...state,
         [question.id]: question,
       }
-    default :
+    default:
       return state
   }
 }
