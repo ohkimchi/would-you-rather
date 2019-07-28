@@ -9,7 +9,7 @@ export function getPercentageForTheOption(question, optionNameString) {
 }
 
 export function getAnsweredQs(questions, authedUser) {
-  questions = removeExtraQuestionsAndUsersInState(questions)
+  // questions = removeExtraQuestionsAndUsersInState(questions)
   return Object.keys(questions)
     .filter(qs => checkIfAuthedUserAnsweredQs(questions[qs], authedUser))
     .map(key => questions[key])

@@ -4,19 +4,17 @@ import MenuItem from "@material-ui/core/MenuItem"
 import FormControl from "@material-ui/core/FormControl"
 import Select from "@material-ui/core/Select"
 import InputLabel from "@material-ui/core/InputLabel"
-import { setAuthedUser } from "../actions/authedUser"
+import { bindActionCreators } from "redux"
+import * as AuthedUserActions from "../actions/authedUser.js"
 
 class Login extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      userid: "",
-    }
+  state = {
+    userid: "",
   }
 
   handleChange = e => {
     const target = e.target.value
-    this.props.dispatch(setAuthedUser(target))
+    this.props.setAuthedUser(target)
     this.setState({
       userid: target,
     })
@@ -47,8 +45,15 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
-  return { users }
+function mapStateToProps(state) {
+  return { users: state.users }
 }
 
-export default connect(mapStateToProps)(Login)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(AuthedUserActions, dispatch)
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login)

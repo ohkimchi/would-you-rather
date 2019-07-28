@@ -22,23 +22,22 @@ class Homepage extends React.Component {
     value: 0,
   }
 
-  handleChange = (e, value) => {
+  handleChange = value => {
     this.setState({ value })
   }
 
   render() {
     const { questions, authedUser } = this.props
-    const { value } = this.state
 
     return (
       <div className="question_list">
         <AppBar position="static">
-          <Tabs value={value} onChange={this.handleChange}>
-            <Tab label="Answered" />
-            <Tab label="Unanswered" />
+          <Tabs value={this.state.value}>
+            <Tab label="Answered" onClick={() => this.handleChange(0)} />
+            <Tab label="Unanswered" onClick={() => this.handleChange(1)} />
           </Tabs>
         </AppBar>
-        {value === 0 && (
+        {this.state.value === 0 && (
           <TabContainer
             key="answered-list"
             questions={getAnsweredQs(questions, authedUser)}
@@ -46,7 +45,7 @@ class Homepage extends React.Component {
             Answered
           </TabContainer>
         )}
-        {value === 1 && (
+        {this.state.value === 1 && (
           <TabContainer
             key="unanswered-list"
             questions={getUnansweredQs(questions, authedUser)}
@@ -59,10 +58,10 @@ class Homepage extends React.Component {
   }
 }
 
-function mapStateToProps({ questions, authedUser }) {
+function mapStateToProps(state) {
   return {
-    questions,
-    authedUser,
+    questions: state.questions,
+    authedUser: state.authedUser,
   }
 }
 
