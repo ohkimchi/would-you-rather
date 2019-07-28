@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16d8e21b-b6b4-46c3-8379-2b9f8b8d25b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NewQuestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewQuestion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LeaderBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Question.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QuestionPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QuestionPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,40 +27,6 @@
         <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>saveQuestionAnswer</find>
-      <find>removeExtraQuestionsAnsUsersKeysInInfo</find>
-      <find>withRouter</find>
-      <find>Link</find>
-      <find>checkIfAuthedUserAnsweredQs</find>
-      <find>getUnansweredQs</find>
-      <find>votes</find>
-      <find>generateUID</find>
-      <find>handleChange</find>
-      <find>handleSaveAnsweredQuestion</find>
-      <find>formatQuestion</find>
-      <find>saveQuestion</find>
-      <find>text</find>
-      <find>console.log</find>
-      <find>getInitialData</find>
-      <find>classes</find>
-      <find>_saveQuestion</find>
-      <find>handleAddQuestion</find>
-      <find>dispatch(</find>
-      <find>SAVE_ANSWERED_QS</find>
-      <find>saveAnsweredQs</find>
-      <find>handleSaveAnsweredQs</find>
-      <find>toDispatch</find>
-      <find>loggingStatus</find>
-      <find>state</find>
-      <find>componentDidMount</find>
-      <find>handleRelogin</find>
-      <find>this.props.dispatch</find>
-      <find>SET_RELOGIN</find>
-      <find>relogin</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -96,7 +63,7 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.chrisrm.ideaddlc.config" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -189,7 +156,7 @@
       <workItem from="1562771162497" duration="41000" />
       <workItem from="1562771218986" duration="136000" />
       <workItem from="1563592974776" duration="997000" />
-      <workItem from="1564227509815" duration="5047000" />
+      <workItem from="1564227509815" duration="7132000" />
     </task>
     <servers />
   </component>

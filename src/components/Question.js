@@ -1,11 +1,11 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import {
-  getVotesNumForTheOption,
-  getPercentageForTheOption,
-  getAuthedUserSelectedOption,
   checkIfAuthedUserAnsweredQs,
+  getAuthedUserSelectedOption,
   getOptionNameFromOptionText,
+  getPercentageForTheOption,
+  getVotesNumForTheOption,
 } from "../utils/helpers"
 import Radio from "@material-ui/core/Radio"
 import RadioGroup from "@material-ui/core/RadioGroup"
@@ -35,19 +35,6 @@ class Question extends Component {
   handleSaveAnsweredQuestion = e => {
     e.preventDefault()
     // for unknown reason, everytime the questions and users are injected into the this.props.questions
-    const { questions, users, question, authedUser } = this.props
-    const qid = question.id
-    const answer = getOptionNameFromOptionText(e.target.innerText, question)
-    const toDispatch = handleSaveAnsweredQs({
-      questions,
-      users,
-      qid,
-      answer,
-      authedUser,
-    })
-    if (toDispatch !== null) {
-      dispatch(toDispatch)
-    }
     if (this.state.value !== e.target.innerText) {
       this.setState({
         value: e.target.innerText,

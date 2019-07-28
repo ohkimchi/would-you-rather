@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import ReactTable from "react-table"
 import "react-table/react-table.css"
 
-class Leaderboard extends Component {
+class LeaderBoard extends Component {
   render() {
     const data = this.props.users
     const columns = [
@@ -59,4 +59,4 @@ function mapStateToProps({ users }) {
   }
 }
 
-export default connect(mapStateToProps)(Leaderboard)
+export default connect(mapStateToProps)(LeaderBoard)
