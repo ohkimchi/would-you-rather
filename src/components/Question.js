@@ -13,6 +13,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel"
 import FormControl from "@material-ui/core/FormControl"
 import { handleSaveAnsweredQs } from "../actions/questions"
 import { Link, withRouter } from "react-router-dom"
+import { bindActionCreators } from "redux"
 
 class Question extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class Question extends Component {
   handleSaveAnsweredQuestion = e => {
     e.preventDefault()
     // for unknown reason, everytime the questions and users are injected into the this.props.questions
-    const { dispatch, questions, users, question, authedUser } = this.props
+    const { questions, users, question, authedUser } = this.props
     const qid = question.id
     const answer = getOptionNameFromOptionText(e.target.innerText, question)
     const toDispatch = handleSaveAnsweredQs({
@@ -159,4 +160,13 @@ function mapStateToProps({ questions, users, authedUser }) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Question))
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(dispatch)
+}
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Question)
+)

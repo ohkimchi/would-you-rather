@@ -17,9 +17,7 @@ const QuestionPage = props => {
 }
 
 function mapStateToProps({ questions }) {
-  return {
-    questions,
-  }
+  return { questions }
 }
 
 export default connect(mapStateToProps)(QuestionPage)
