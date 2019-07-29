@@ -19,7 +19,7 @@ function TabContainer(props) {
 
 class Homepage extends React.Component {
   state = {
-    value: 0,
+    value: 0
   }
 
   handleChange = value => {
@@ -61,7 +61,7 @@ class Homepage extends React.Component {
 function mapStateToProps(state) {
   return {
     questions: state.questions,
-    authedUser: state.authedUser,
+    authedUser: state.authedUser
   }
 }
 

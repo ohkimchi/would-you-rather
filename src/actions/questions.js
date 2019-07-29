@@ -14,7 +14,7 @@ export function handleAddQuestion(question) {
 
     return saveQuestion({
       ...question,
-      author: authedUser,
+      author: authedUser
     })
       .then(question => dispatch(addQuestion(question)))
       .then(() => dispatch(hideLoading()))
@@ -24,14 +24,14 @@ export function handleAddQuestion(question) {
 function addQuestion(question) {
   return {
     type: ADD_QUESTION,
-    question,
+    question
   }
 }
 
 export function getQuestions(questions) {
   return {
     type: GET_QUESTIONS,
-    questions,
+    questions
   }
 }
 
@@ -42,7 +42,7 @@ function saveAnsweredQs({ questions, users, qid, answer, authedUser }) {
     users,
     qid,
     answer,
-    authedUser,
+    authedUser
   }
 }
 

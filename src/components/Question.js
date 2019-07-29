@@ -5,7 +5,7 @@ import {
   getAuthedUserSelectedOption,
   getOptionNameFromOptionText,
   getPercentageForTheOption,
-  getVotesNumForTheOption,
+  getVotesNumForTheOption
 } from "../utils/helpers"
 import Radio from "@material-ui/core/Radio"
 import RadioGroup from "@material-ui/core/RadioGroup"
@@ -19,7 +19,7 @@ class Question extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: "",
+      value: ""
     }
   }
 
@@ -27,7 +27,7 @@ class Question extends Component {
     const { question, authedUser } = this.props
     if (checkIfAuthedUserAnsweredQs(question, authedUser)) {
       this.setState({
-        value: getAuthedUserSelectedOption(question, authedUser),
+        value: getAuthedUserSelectedOption(question, authedUser)
       })
     }
   }
@@ -37,7 +37,7 @@ class Question extends Component {
     // for unknown reason, everytime the questions and users are injected into the this.props.questions
     if (this.state.value !== e.target.innerText) {
       this.setState({
-        value: e.target.innerText,
+        value: e.target.innerText
       })
     }
   }
@@ -53,14 +53,14 @@ class Question extends Component {
       users,
       qid,
       answer,
-      authedUser,
+      authedUser
     })
     if (toDispatch !== null) {
       dispatch(toDispatch)
     }
     if (this.state.value !== e.target.value) {
       this.setState({
-        value: e.target.value,
+        value: e.target.value
       })
     }
   }
@@ -143,7 +143,7 @@ function mapStateToProps({ questions, users, authedUser }) {
   return {
     questions,
     users,
-    authedUser,
+    authedUser
   }
 }
 

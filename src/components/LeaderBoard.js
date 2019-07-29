@@ -9,7 +9,7 @@ class LeaderBoard extends Component {
     const columns = [
       {
         Header: "Name",
-        accessor: "name",
+        accessor: "name"
       },
       {
         Header: "Total No. of qs asked or answered",
@@ -18,19 +18,19 @@ class LeaderBoard extends Component {
           (
             (d.questions.length ? d.questions.length : 0) +
             (d.answers.length ? d.answers.length : 0)
-          ).toString(),
+          ).toString()
       },
       {
         Header: "No. of qs asked",
         id: d => "asked_" + d.id,
         accessor: d =>
-          d.questions.length ? d.questions.length.toString() : "0",
+          d.questions.length ? d.questions.length.toString() : "0"
       },
       {
         Header: "No. of qs answered",
         id: d => "answered_" + d.id,
-        accessor: d => (d.answers.length ? d.answers.length.toString() : "0"),
-      },
+        accessor: d => (d.answers.length ? d.answers.length.toString() : "0")
+      }
     ]
 
     return (
@@ -55,7 +55,7 @@ function mapStateToProps({ users }) {
       .sort(
         (a, b) => getNumberOfQsAndAns(users[a]) - getNumberOfQsAndAns(users[b])
       )
-      .map(key => users[key]),
+      .map(key => users[key])
   }
 }
 

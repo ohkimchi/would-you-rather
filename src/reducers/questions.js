@@ -1,7 +1,7 @@
 import {
   GET_QUESTIONS,
   SAVE_ANSWERED_QS,
-  ADD_QUESTION,
+  ADD_QUESTION
 } from "../actions/questions"
 
 export default function questions(state = {}, action) {
@@ -9,7 +9,7 @@ export default function questions(state = {}, action) {
     case GET_QUESTIONS:
       return {
         ...state,
-        ...action.questions,
+        ...action.questions
       }
     case SAVE_ANSWERED_QS:
       const { users, questions } = state
@@ -22,9 +22,9 @@ export default function questions(state = {}, action) {
             ...action.questions[qid],
             [answer]: {
               ...action.questions[qid][answer],
-              votes: action.questions[qid][answer].votes.concat([authedUser]),
-            },
-          },
+              votes: action.questions[qid][answer].votes.concat([authedUser])
+            }
+          }
         },
         users: {
           ...users,
@@ -32,16 +32,16 @@ export default function questions(state = {}, action) {
             ...action.users[authedUser],
             answers: {
               ...action.users[authedUser].answers,
-              [qid]: answer,
-            },
-          },
-        },
+              [qid]: answer
+            }
+          }
+        }
       }
     case ADD_QUESTION:
       const { question } = action
       return {
         ...state,
-        [question.id]: question,
+        [question.id]: question
       }
     default:
       return state

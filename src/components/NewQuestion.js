@@ -7,7 +7,7 @@ class NewQuestion extends Component {
   state = {
     option1: "",
     option2: "",
-    toHome: false,
+    toHome: false
   }
 
   handleChange = e => {
@@ -15,7 +15,7 @@ class NewQuestion extends Component {
     const optionId = e.target.id
 
     this.setState({
-      [optionId === "option1" ? "option1" : "option2"]: text,
+      [optionId === "option1" ? "option1" : "option2"]: text
     })
   }
 
@@ -27,12 +27,12 @@ class NewQuestion extends Component {
     const question = {
       optionOne: {
         votes: [],
-        text: option1,
+        text: option1
       },
       optionTwo: {
         votes: [],
-        text: option2,
-      },
+        text: option2
+      }
     }
 
     dispatch(handleAddQuestion(question))
@@ -40,7 +40,7 @@ class NewQuestion extends Component {
     this.setState(() => ({
       option1: "",
       option2: "",
-      toHome: !id,
+      toHome: !id
     }))
   }
 

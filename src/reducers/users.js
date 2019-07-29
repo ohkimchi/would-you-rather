@@ -5,7 +5,7 @@ export default function questions(state = {}, action) {
     case GET_USERS:
       return {
         ...state,
-        ...action.users,
+        ...action.users
       }
     default:
       return state

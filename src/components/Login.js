@@ -9,14 +9,14 @@ import * as AuthedUserActions from "../actions/authedUser.js"
 
 class Login extends Component {
   state = {
-    userid: "",
+    userid: ""
   }
 
   handleChange = e => {
     const target = e.target.value
     this.props.setAuthedUser(target)
     this.setState({
-      userid: target,
+      userid: target
     })
   }
 
@@ -30,7 +30,7 @@ class Login extends Component {
             value={this.state.userid}
             onChange={this.handleChange}
             inputProps={{
-              name: "userid",
+              name: "userid"
             }}
           >
             {Object.keys(users).map(id => (
