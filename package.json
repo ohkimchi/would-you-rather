@@ -20,14 +20,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "pretty": "prettier --write \"src/**/*.js\"",
-    "precommit": "lint-staged"
+    "pretty": "prettier --write \"src/**/*.js\" \"src/**/*.css\" && git status",
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js, css, md, json}": [
       "npm run pretty",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretty",
+      "post-commit": "git update-index --again"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,6 +52,7 @@
   },
   "devDependencies": {
     "eslint-plugin-react": "^7.13.0",
+    "husky": "^3.0.1",
     "prettier": "^1.18.2"
   }
 }
